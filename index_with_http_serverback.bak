@@ -1,0 +1,13 @@
+import http from 'http'
+
+const port = 4000
+
+http.createServer((request, response) => {
+    response.writeHead(200, { 'Content-type': 'text/plain' })
+    response.end('Hello World')
+
+    console.log('server responded with hello world');
+}).listen(port, () => {
+    console.log(`Server kører på port http://localhost:${port}`);
+})
+
