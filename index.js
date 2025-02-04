@@ -25,7 +25,7 @@ app.get('/about', (request, response) => {
   
 
 app.listen(port, () =>{
-    console.log(`server kører på http//:localhost:${port}`);
+    console.log(`server kører på http://localhost:${port}`);
 })
 
 app.get('/test', async (req, res) => {
