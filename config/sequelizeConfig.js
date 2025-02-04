@@ -21,7 +21,7 @@ const sequelize = new Sequelize(
 )
 
 sequelize.authenticate()
-.then(() => console.log('connecting ti database establiched'))
+.then(() => console.log('connecting to database established'))
 .catch(error => console.error(`could not connect to database: ${error}`))
 
 export default sequelize;
