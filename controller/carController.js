@@ -112,7 +112,7 @@ carController.delete('/cars/:id([0-9]*)', async (req, res) => {
         });
         //success delete
         res.status(200).send({
-          message: `Rækken er slettet`
+          message: `Rækken med id #${id} er slettet`
         });
       } catch (error) {
         // Send en HTTP-statuskode 500 hvis der opstår en fejl
