@@ -105,25 +105,25 @@ carController.delete('/cars/:id([0-9]*)', async (req, res) => {
     const { id } = req.params;
     // Tjekker om et ID er angivet
     if (id) {
-      try {
-        // Forsøger at slette bilen fra databasen baseret på ID
-        await carModel.destroy({
-          where: { id }
-        });
-        //success delete
-        res.status(200).send({
-          message: `Bilen med id #${id} er slettet`
-        });
-      } catch (error) {
-        // Send en HTTP-statuskode 500 hvis der opstår en fejl
-        res.status(500).send({
-          message: `Kunne ikke slette bilen: ${error.message}`
-        });
-      }
+        try {
+            // Forsøger at slette bilen fra databasen baseret på ID
+            await carModel.destroy({
+                where: { id }
+            });
+            //success delete
+            res.status(200).send({
+                message: `Bilen med id #${id} er slettet`
+            });
+        } catch (error) {
+            // Send en HTTP-statuskode 500 hvis der opstår en fejl
+            res.status(500).send({
+                message: `Kunne ikke slette bilen: ${error.message}`
+            });
+        }
     } else {
-      // Sender 400 Bad Request-fejl hvis ID er ugyldigt 
-      res.status(400).send({
-        message: "Id er ugyldigt"
-      });
+        // Sender 400 Bad Request-fejl hvis ID er ugyldigt 
+        res.status(400).send({
+            message: "Id er ugyldigt"
+        });
     }
-  });
+});
