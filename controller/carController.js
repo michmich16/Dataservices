@@ -76,13 +76,13 @@ carController.put('/cars', async (req, res) => {
         try {
             // Opdaterer bilen i databasen baseret på det givne ID
             const result = await carModel.update(
-                { brand, year }, // De nye værdier
+                { brand, year, model, color, price }, // De nye værdier
                 { where: { id } } // Finder bilen baseret på ID
             );
 
             // Tjekker om en række blev opdateret (result[0] er antal rækker opdateret)
             if (result[0] > 0) {
-                res.status(200).json({ message: "Bil opdateret succesfuldt" });
+                res.status(200).json({ message: `Bil ${year} ${brand} ${model} opdateret succesfuldt` });
             } else {
                 res.status(404).json({ message: "Bil ikke fundet" });
             }
@@ -98,7 +98,7 @@ carController.put('/cars', async (req, res) => {
     }
 });
 
-// Route til at slette en bil baseret på ID
+// Route to delete (DELETE)
 carController.delete('/cars/:id([0-9]*)', async (req, res) => {
 
     // Henter ID fra URL-parametrene
@@ -112,7 +112,7 @@ carController.delete('/cars/:id([0-9]*)', async (req, res) => {
         });
         //success delete
         res.status(200).send({
-          message: `Rækken med id #${id} er slettet`
+          message: `Bilen med id #${id} er slettet`
         });
       } catch (error) {
         // Send en HTTP-statuskode 500 hvis der opstår en fejl
