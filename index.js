@@ -1,10 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import sequelize from './config/sequelizeConfig.js';
+import sequelize from './config/sequelizeClient.js';
 import { dbController } from './controller/dbController.js';
 import { carController } from './controller/carController.js';
 import { brandController } from './controller/brandController.js';
 import { userController } from './controller/userController.js';
+import { authController } from './controller/authController.js';
 
 
 dotenv.config()
@@ -18,7 +19,7 @@ app.get('/', (request, response) => {
   console.log('hej verden');
   response.send('velkommen til min side hej hej');
 })
-app.use(dbController, carController, brandController, userController)
+app.use(dbController, carController, brandController, userController, authController)
 
 
 //Route to 404

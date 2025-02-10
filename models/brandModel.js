@@ -1,4 +1,4 @@
-import sequelize from "../config/sequelizeConfig.js";
+import sequelize from "../config/sequelizeClient.js";
 import { Model, DataTypes } from 'sequelize'
 
 export class brandModel extends Model { }
